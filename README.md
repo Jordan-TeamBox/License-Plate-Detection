@@ -12,3 +12,5 @@ In order to run the project, I split it into three different sections. The first
 
 ### A. Part 1: Extracting License Plate Location from Image
 For this part, 
+
+### B. Part 2: Recognizing 
