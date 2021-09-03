@@ -10,7 +10,11 @@ In order to edit the code, I needed to do more research including looking into t
 ## III. Project
 In order to run the project, I split it into three different sections. The first section is let the computer to be able to detect where the license plate is given a picture. The second step is to recognize where the individual letters are in the lincense plate and then clean them in order to make the computer easier to detect. The last and the most important step is to train the computer using different networks and then detect the letters using machine learning.
 
-### A. Part 1: Extracting License Plate Location from Image
+### Part 1: Extracting License Plate Location from Image
 For this part, 
 
-### B. Part 2: Recognizing 
+### Part 2: Recognizing Letters within the License Plate
+In this part, 
+
+### Part 3: Training the Computer with different Networks and using them to detect the letters.
+Training 
