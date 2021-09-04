@@ -22,6 +22,9 @@ def get_plate(image_path, Dmax=608, Dmin = 608):
     _ , LpImg, _, cor = detect_lp(wpod_net, vehicle, bound_dim, lp_threshold=0.5)
     return vehicle, LpImg, cor
 ```
+The result is
+
+<img src="Images/part1_result.jpg">
 
 ### &nbsp;&nbsp;&nbsp; Part 2: Recognizing Letters within the License Plate
 &nbsp;&nbsp;&nbsp; In this part of the project I had to first greyscale and turn the license plate into a easier formate to use. In order to process the images, we first used this function to make sure our pictures are equal sizes
