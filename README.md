@@ -24,7 +24,7 @@ def get_plate(image_path, Dmax=608, Dmin = 608):
 ```
 The result is
 
-<img src="Images/part1_result(1).jpg">
+<img src="Images/part1_result (1).jpg">
 
 ### &nbsp;&nbsp;&nbsp; Part 2: Recognizing Letters within the License Plate
 &nbsp;&nbsp;&nbsp; In this part of the project I had to first greyscale and turn the license plate into a easier formate to use. In order to process the images, we first used this function to make sure our pictures are equal sizes
@@ -59,7 +59,7 @@ if (len(LpImg)): #check if there is at least one license image
 ```
 The result looks like this
 
-<img src="/Images/threshding(1).png">
+<img src="/Images/threshding (1).png">
 
 Lastly, in order to detect the individual letters, I sorted all of the contours of the image and according to its width and height, determine where the letters are. The following segment of code achieves this step.
 
