@@ -11,10 +11,67 @@ In order to edit the code, I needed to do more research including looking into t
 In order to run the project, I split it into three different sections. The first section is let the computer to be able to detect where the license plate is given a picture. The second step is to recognize where the individual letters are in the lincense plate and then clean them in order to make the computer easier to detect. The last and the most important step is to train the computer using different networks and then detect the letters using machine learning.
 
 ### &nbsp;&nbsp;&nbsp; Part 1: Extracting License Plate Location from Image
-&nbsp;&nbsp;&nbsp; For this part, 
+&nbsp;&nbsp;&nbsp; For this part, I used a pretrained model using wpod net and the following function uses wpod to detect the license plate location with its respective coordinates.
+
+``` Python
+def get_plate(image_path, Dmax=608, Dmin = 608):
+    vehicle = preprocess_image(image_path)
+    ratio = float(max(vehicle.shape[:2])) / min(vehicle.shape[:2])
+    side = int(ratio * Dmin)
+    bound_dim = min(side, Dmax)
+    _ , LpImg, _, cor = detect_lp(wpod_net, vehicle, bound_dim, lp_threshold=0.5)
+    return vehicle, LpImg, cor
+```
 
 ### &nbsp;&nbsp;&nbsp; Part 2: Recognizing Letters within the License Plate
-&nbsp;&nbsp;&nbsp; In this part of the project I had to first greyscale and turn the license plate into a easier formate to use. 
+&nbsp;&nbsp;&nbsp; In this part of the project I had to first greyscale and turn the license plate into a easier formate to use. In order to process the images, we first used this function to make sure our pictures are equal sizes
+
+``` Python
+def preprocess_image(image_path,resize=False):
+    img = cv2.imread(image_path)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    img = img / 255
+    if resize:
+        img = cv2.resize(img, (224,224))
+    return img
+```
+
+Then we use many techniques to get what we want, such as converting the images to 255 scale, then grayscale, then blurring it and also setting a threshhold value. Which is achieved using the following lines
+
+``` Python
+if (len(LpImg)): #check if there is at least one license image
+      # Scales, calculates absolute values, and converts the result to 8-bit.
+      plate_image = cv2.convertScaleAbs(LpImg[0], alpha=(255.0))
+    
+    # convert to grayscale and blur the image
+      gray = cv2.cvtColor(plate_image, cv2.COLOR_BGR2GRAY)
+      blur = cv2.GaussianBlur(gray,(7,7),0)
+    
+    # Applied inversed thresh_binary 
+      binary = cv2.threshold(blur, 180, 255,
+                           cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+    
+      kernel3 = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+      thre_mor = cv2.morphologyEx(binary, cv2.MORPH_DILATE, kernel3)
+```
+
+Lastly, in order to detect the individual letters, I sorted all of the contours of the image and according to its width and height, determine where the letters are. The following segment of code achieves this step.
+
+``` Python
+for c in sort_contours(cont):
+        (x, y, w, h) = cv2.boundingRect(c)
+        ratio = h/w
+        if 0.5<=ratio<=5: # Only select contour with defined ratio
+            if h/plate_image.shape[0]>=0.5: # Select contour which has the height larger than 50% of the plate
+                # Draw bounding box arroung digit number
+                cv2.rectangle(test_roi, (x, y), (x + w, y + h), (0, 255,0), 2)
+
+                # Sperate number and gibe prediction
+                curr_num = thre_mor[y:y+h,x:x+w]
+                curr_num = cv2.resize(curr_num, dsize=(digit_w, digit_h))
+                _, curr_num = cv2.threshold(curr_num, 220, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+                crop_characters.append(curr_num)
+```
 
 ### &nbsp;&nbsp;&nbsp; Part 3: Training the Computer with different Networks and using them to detect the letters.
 &nbsp;&nbsp;&nbsp; Training the computer takes a long time and memory. I first researched what types of networks that I could use with the frameword and I found out that I could use MobileNet, ResNet, and Xception.
