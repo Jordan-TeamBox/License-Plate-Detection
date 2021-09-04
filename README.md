@@ -17,4 +17,6 @@ For this part,
 In this part of the project I had to first greyscale and turn the license plate into a easier formate to use. 
 
 ### Part 3: Training the Computer with different Networks and using them to detect the letters.
-Training the computer takes a long time and memory.
+Training the computer takes a long time and memory. I first researched what types of networks that I could use with the frameword and I found out that I could use MobileNet, ResNet, and Xception.
+#### MobileNet:
+This is the network that the framework came with. Even though there was a lot of errors and it took me a long time to get it running, I was able to produce some of the results that the original author had. MobileNet uses lightweight deep convolutional neural networks to provide an efficient model for mobile and embedded vision applications. 
