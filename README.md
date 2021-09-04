@@ -14,7 +14,7 @@ In order to run the project, I split it into three different sections. The first
 For this part, 
 
 ### Part 2: Recognizing Letters within the License Plate
-In this part, 
+In this part of the project I had to first greyscale and turn the license plate into a easier formate to use. 
 
 ### Part 3: Training the Computer with different Networks and using them to detect the letters.
-Training 
+Training the computer takes a long time and memory.
