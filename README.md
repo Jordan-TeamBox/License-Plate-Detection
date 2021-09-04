@@ -116,12 +116,24 @@ def create_model(lr=1e-4,decay=1e-4/25., training=False,output_shape=y.shape[1])
         
     return model
 ```
+The following shows the MobileNet Architecture
+
+<img src="/Images/mobilenet.png">
 
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResNet:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResNet worked flawlessly within the network but it did took a lot longer than MobileNet on Google Colab. ResNet uses residual learning and builds pyramidal cells so that layers could be skipped. 
 
+The following shows the ResNet Architecture
+
+<img src="/Images/ResNet.png">
+
+
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Xception:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Xception took around the same time as ResNet. Xception is a deeper implementation of Inception which uses Deapthwise Separable Convolutions to train the data. 
+
+The following shows the Xception Architecture
+
+<img src="/Images/Xception.png">
 
 ### &nbsp;&nbsp;&nbsp; Challenges:
 &nbsp;&nbsp;&nbsp; Throughout this whole project, many problems was encountered. First of all, I discovered that Google Colab was really slow in running the models and tests so I decided to use my own computer with the gpu to hopefully make the training go faster. Then I discovered that even with my gpu, the computer still does not run as fast as Google Colab and my memory was running out. In the end, I switched back to Google Colab and tested the rest of the project there. When using the different networks, problems also occured when chosing which version of the librariesare used such as for the keras application and tensorflow. Throughout the process, there was many bugs as well that was discovered. I was able to overcome all the challenges and tested and experienced with machine learning in deapth. 
