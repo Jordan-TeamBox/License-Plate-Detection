@@ -59,7 +59,7 @@ if (len(LpImg)): #check if there is at least one license image
 ```
 The result looks like this
 
-<img src="threshding.png">
+<img src="/Images/threshding.png">
 
 Lastly, in order to detect the individual letters, I sorted all of the contours of the image and according to its width and height, determine where the letters are. The following segment of code achieves this step.
 
