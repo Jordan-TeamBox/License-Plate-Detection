@@ -39,7 +39,7 @@ def preprocess_image(image_path,resize=False):
     return img
 ```
 
-Then we use many techniques to get what we want, such as converting the images to 255 scale, then grayscale, then blurring it and also setting a threshhold value. Which is achieved using the following lines
+Then we use many techniques to get what we want, such as converting the images to 255 scale, then grayscale, then blurring it and also setting a threshhold value to change it to binary and finally, dilate the image. Which is achieved using the following lines
 
 ``` Python
 if (len(LpImg)): #check if there is at least one license image
@@ -57,6 +57,9 @@ if (len(LpImg)): #check if there is at least one license image
       kernel3 = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
       thre_mor = cv2.morphologyEx(binary, cv2.MORPH_DILATE, kernel3)
 ```
+The result looks like this
+
+<img src="threshding.png">
 
 Lastly, in order to detect the individual letters, I sorted all of the contours of the image and according to its width and height, determine where the letters are. The following segment of code achieves this step.
 
