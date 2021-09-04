@@ -74,10 +74,37 @@ for c in sort_contours(cont):
 ```
 
 ### &nbsp;&nbsp;&nbsp; Part 3: Training the Computer with different Networks and using them to detect the letters.
-&nbsp;&nbsp;&nbsp; Training the computer takes a long time and memory. I first researched what types of networks that I could use with the frameword and I found out that I could use MobileNet, ResNet, and Xception.
+&nbsp;&nbsp;&nbsp; Training the computer takes a long time and memory. I first researched what types of networks that I could use with the frameword and I found out that I could use MobileNet, ResNet, and Xception. With the training data provided by Nguyen, I was able to train all of these networks with notable results.
 
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MobileNet:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This is the network that the framework came with. Even though there was a lot of errors and it took me a long time to get it running, I was able to produce some of the results that the original author had. MobileNet uses lightweight deep convolutional neural networks to provide an efficient model for mobile and embedded vision applications. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This is the network that the framework came with. Even though there was a lot of errors and it took me a long time to get it running, I was able to produce some of the results that the original author had. MobileNet uses lightweight deep convolutional neural networks to provide an efficient model for mobile and embedded vision applications. The following function uses the MobileNet structure to start training from the dataset.
+
+``` Python
+# Create our model with pre-trained MobileNetV2 architecture from imagenet
+def create_model(lr=1e-4,decay=1e-4/25., training=False,output_shape=y.shape[1]):
+    baseModel = MobileNetV2(weights="imagenet", 
+                            include_top=False,
+                            input_tensor=Input(shape=(80, 80, 3)))
+
+    headModel = baseModel.output
+    headModel = AveragePooling2D(pool_size=(3, 3))(headModel)
+    headModel = Flatten(name="flatten")(headModel)
+    headModel = Dense(128, activation="relu")(headModel)
+    headModel = Dropout(0.5)(headModel)
+    headModel = Dense(output_shape, activation="softmax")(headModel)
+    
+    model = Model(inputs=baseModel.input, outputs=headModel)
+    
+    if training:
+        # define trainable lalyer
+        for layer in baseModel.layers:
+            layer.trainable = True
+        # compile model
+        optimizer = Adam(lr=lr, decay = decay)
+        model.compile(loss="categorical_crossentropy", optimizer=optimizer,metrics=["accuracy"])    
+        
+    return model
+```
 
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResNet:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResNet worked flawlessly within the network but it did took a lot longer than MobileNet on Google Colab. ResNet uses residual learning and builds pyramidal cells so that layers could be skipped. 
