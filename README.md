@@ -35,6 +35,6 @@ In order to run the project, I split it into three different sections. The first
 
 
 ## Conclusion:
-
+Working with programs and code can be very frustrating at times but eventually, everything can be solved. Through this project and research, I know many of the weakness and flaw of the original framework. I can do more research and find a better solution to extract the license plates more effectively and also can improve on letter detection as well as the networks.
 
 ## References
