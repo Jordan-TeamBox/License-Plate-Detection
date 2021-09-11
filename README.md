@@ -2,16 +2,16 @@
 License plate detection using different networks
 
 ## I. Introduction
-Machine Learning and Artificial Intelligence is very important to this world today, every single technological advances has to do with some machine learning and artificial intelligence including computer vision, natural language processing, autonomus driving, and much more. In this project, I wanted to test computer vision, a part of computer science and improve on it. I choose a very popular concept, license plate detection to carry out my research. First of all, my mentor and I found avery well organized article on computer vision and license plate detection. Then I used this as a framework for my research. 
+Machine Learning and Artificial Intelligence is very important to this world today, every single technological advances has to do with some machine learning and artificial intelligence including computer vision, natural language processing, autonomus driving, and much more. This project tests computer vision, a part of computer science, and improve on it. License Plate detection is being researched. This research uses Quang Nguyen's medium page (Detect and Recognize Vehicle’s License Plate with Machine Learning and Python) as a framework. 
 
 ## II. Research
-In order to edit the code, I needed to do more research including looking into the Keras applications and documentation as this was used in the framework. I have also dived deeply in to the reference code and figured out what individual steps are doing.
+In order to edit the code and test the program, extensive research was conducted, this includes looking into the Keras applications and documentation as this was used in the framework. Also, diving deeply in to the reference code is very helpful to figured out what the individual steps are doing.
 
 ## III. Project
-In order to run the project, I split it into three different sections. The first section is let the computer to be able to detect where the license plate is given a picture. The second step is to recognize where the individual letters are in the lincense plate and then clean them in order to make the computer easier to detect. The last and the most important step is to train the computer using different networks and then detect the letters using machine learning.
+The project is done in three different sections. The first section is letting the computer detect where the license plate is given a picture. The second step is to recognize where the individual letters are in the lincense plate and then clean them in order to make the computer easier to detect. The last and the most important step is to train the computer using different networks and then detect the letters using machine learning.
 
 ### &nbsp;&nbsp;&nbsp; Part 1: Extracting License Plate Location from Image
-&nbsp;&nbsp;&nbsp; For this part, I used a pretrained model using wpod net and the following function uses wpod to detect the license plate location with its respective coordinates.
+&nbsp;&nbsp;&nbsp; For this part, a pretrained model using wpod net is used and the following function uses wpod to detect the license plate location with its respective coordinates.
 
 ``` Python
 def get_plate(image_path, Dmax=608, Dmin = 608):
@@ -27,7 +27,7 @@ The result is
 <img src="Images/part1_result (1).jpg">
 
 ### &nbsp;&nbsp;&nbsp; Part 2: Recognizing Letters within the License Plate
-&nbsp;&nbsp;&nbsp; In this part of the project I had to first greyscale and turn the license plate into a easier formate to use. In order to process the images, we first used this function to make sure our pictures are equal sizes
+&nbsp;&nbsp;&nbsp; In this part of the project, many steps has to be done. In order to process the images, this function makes sure the pictures are equal sizes
 
 ``` Python
 def preprocess_image(image_path,resize=False):
@@ -39,7 +39,7 @@ def preprocess_image(image_path,resize=False):
     return img
 ```
 
-Then we use many techniques to get what we want, such as converting the images to 255 scale, then grayscale, then blurring it and also setting a threshhold value to change it to binary and finally, dilate the image. Which is achieved using the following lines
+Then other techniques are used to get what we want, such as converting the images to 255 scale, then grayscale, then blurring it and also setting a threshhold value to change it to binary and finally, dilate the image. Which is achieved using the following lines
 
 ``` Python
 if (len(LpImg)): #check if there is at least one license image
@@ -61,7 +61,7 @@ The result looks like this
 
 <img src="/Images/threshding (1).png">
 
-Lastly, in order to detect the individual letters, I sorted all of the contours of the image and according to its width and height, determine where the letters are. The following segment of code achieves this step.
+Lastly, in order to detect the individual letters, all of the contours of the image are sorted and according to its width and height, determines where the letters are. The following segment of code achieves this step.
 
 ``` Python
 for c in sort_contours(cont):
@@ -85,10 +85,10 @@ The result is
 
 
 ### &nbsp;&nbsp;&nbsp; Part 3: Training the Computer with different Networks and using them to detect the letters.
-&nbsp;&nbsp;&nbsp; Training the computer takes a long time and memory. I first researched what types of networks that I could use with the frameword and I found out that I could use MobileNet, ResNet, and Xception. With the training data provided by Nguyen, I was able to train all of these networks with notable results.
+&nbsp;&nbsp;&nbsp; Training the computer takes a long time and memory. First, researched about what types of networks that could be used with the frameword was conducted and MobileNet, ResNet, and Xception were the three models that were compatible. With the training data provided by Nguyen, the program was able to train all of these networks with notable results.
 
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MobileNet:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This is the network that the framework came with. Even though there was a lot of errors and it took me a long time to get it running, I was able to produce some of the results that the original author had. MobileNet uses lightweight deep convolutional neural networks to provide an efficient model for mobile and embedded vision applications. The following function uses the MobileNet structure to start training from the dataset.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This is the network that the framework came with. Even though there was a lot of errors and it took me a long time to get it running, it was able to produce some of the results that the original author had. MobileNet uses lightweight deep convolutional neural networks to provide an efficient model for mobile and embedded vision applications. The following function uses the MobileNet structure to start training from the dataset.
 
 ``` Python
 # Create our model with pre-trained MobileNetV2 architecture from imagenet
