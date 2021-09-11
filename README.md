@@ -145,3 +145,5 @@ The following shows the Xception Architecture
 Working with programs and code can be very frustrating at times but eventually, everything can be solved. Through this project and research, I know many of the weakness and flaw of the original framework. I can do more research and find a better solution to extract the license plates more effectively and also can improve on letter detection as well as the networks.
 
 ## References
+[1] Detect and Recognize Vehicle’s License Plate with Machine Learning and Python — Part 2: Plate character segmentation with OpenCV
+[2] He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778). https://arxiv.org/abs/1512.03385
