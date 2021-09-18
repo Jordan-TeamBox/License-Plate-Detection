@@ -142,6 +142,8 @@ The following shows the Xception Architecture
 ### &nbsp;&nbsp;&nbsp; Results:
 &nbsp;&nbsp;&nbsp; Here is the final result after the letters are separated and the model has been used to detect the letters.
 
+<img src="/Images/final_result1.png">
+
 ## Conclusion:
 Working with programs and code can be very frustrating at times but eventually, everything can be solved. Through this project and research, I know many of the weakness and flaw of the original framework. I can do more research and find a better solution to extract the license plates more effectively and also can improve on letter detection as well as the networks.
 
