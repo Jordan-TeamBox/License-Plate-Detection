@@ -140,7 +140,7 @@ The following shows the Xception Architecture
 &nbsp;&nbsp;&nbsp; Throughout this whole project, many problems was encountered. First of all, I discovered that Google Colab was really slow in running the models and tests so I decided to use my own computer with the gpu to hopefully make the training go faster. Then I discovered that even with my gpu, the computer still does not run as fast as Google Colab and my memory was running out. In the end, I switched back to Google Colab and tested the rest of the project there. When using the different networks, problems also occured when chosing which version of the librariesare used such as for the keras application and tensorflow. Throughout the process, there was many bugs as well that was discovered. I was able to overcome all the challenges and tested and experienced with machine learning in deapth. 
 
 ### &nbsp;&nbsp;&nbsp; Results:
-
+&nbsp;&nbsp;&nbsp; Here is the final result after the letters are separated and the model has been used to detect the letters.
 
 ## Conclusion:
 Working with programs and code can be very frustrating at times but eventually, everything can be solved. Through this project and research, I know many of the weakness and flaw of the original framework. I can do more research and find a better solution to extract the license plates more effectively and also can improve on letter detection as well as the networks.
