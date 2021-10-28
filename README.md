@@ -1,6 +1,5 @@
 # License-Plate-Detection
-
-License plate detection using different networks
+Artificially Intelligence and Machine learning has become an inseparable technology in this world. Many of our equipments require these technologies to function. We are going to see how one part of machine learning, licence plate detection, is implemented and test out the different neural networks that could be used to train the data.
 
 ## I. Introduction
 Machine Learning and Artificial Intelligence is very important to this world today, every single technological advances has to do with some machine learning and artificial intelligence including computer vision, natural language processing, autonomus driving, and much more. This project tests computer vision, a part of computer science, and improve on it. License Plate detection is being researched. This research uses Quang Nguyen's medium page (Detect and Recognize Vehicle’s License Plate with Machine Learning and Python) as a framework. 
