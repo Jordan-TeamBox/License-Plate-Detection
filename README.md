@@ -88,7 +88,7 @@ The result is
 &nbsp;&nbsp;&nbsp; Training the computer takes a long time and memory. First, researched about what types of networks that could be used with the frameword was conducted and MobileNet, ResNet, and Xception were the three models that were compatible. With the training data provided by Nguyen, the program was able to train all of these networks with notable results.
 
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MobileNet:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This is the network that the framework came with. Even though there was a lot of errors and it took me a long time to get it running, it was able to produce some of the results that the original author had. MobileNet uses lightweight deep convolutional neural networks to provide an efficient model for mobile and embedded vision applications. The following function uses the MobileNet structure to start training from the dataset. [3]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This is the network that the framework came with. Even though there was a lot of errors and it took me a long time to get it running, it was able to produce some of the results that the original author had. MobileNet uses lightweight deep convolutional neural networks to provide an efficient model for mobile and embedded vision applications. The following function uses the MobileNet structure to start training from the dataset. [3] [4]
 
 ``` Python
 # Create our model with pre-trained MobileNetV2 architecture from imagenet
@@ -121,7 +121,7 @@ The following shows the MobileNet Architecture
 <img src="/Images/mobilenet.png">
 
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResNet:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResNet worked flawlessly within the network but it did took a lot longer than MobileNet on Google Colab. ResNet uses residual learning and builds pyramidal cells so that layers could be skipped. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResNet worked flawlessly within the network but it did took a lot longer than MobileNet on Google Colab. ResNet uses residual learning and builds pyramidal cells so that layers could be skipped. [5]
 
 The following shows the ResNet Architecture
 
@@ -129,7 +129,7 @@ The following shows the ResNet Architecture
 
 
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Xception:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Xception took around the same time as ResNet. Xception is a deeper implementation of Inception which uses Deapthwise Separable Convolutions to train the data. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Xception took around the same time as ResNet. Xception is a deeper implementation of Inception which uses Deapthwise Separable Convolutions to train the data. [6]
 
 The following shows the Xception Architecture
 
@@ -153,4 +153,8 @@ Working with programs and code can be very frustrating at times but eventually, 
 
 [3] Detect and Recognize Vehicle’s License Plate with Machine Learning and Python — Part 3: Recognize plate license characters with OpenCV and Deep Learning. https://medium.com/@quangnhatnguyenle/detect-and-recognize-vehicles-license-plate-with-machine-learning-and-python-part-3-recognize-be2eca1a9f12
 
-[4] He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778). https://arxiv.org/abs/1512.03385
+[4] Howard, Andrew G., et al. "Mobilenets: Efficient convolutional neural networks for mobile vision applications." arXiv preprint arXiv:1704.04861 (2017). https://arxiv.org/abs/1704.04861
+
+[5] He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778). https://arxiv.org/abs/1512.03385
+
+[6] Chollet, François. "Xception: Deep learning with depthwise separable convolutions." Proceedings of the IEEE conference on computer vision and pattern recognition. 2017. https://arxiv.org/abs/1610.02357
