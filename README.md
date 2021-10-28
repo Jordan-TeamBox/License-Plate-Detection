@@ -11,7 +11,7 @@ In order to edit the code and test the program, extensive research was conducted
 The project is done in three different sections. The first section is letting the computer detect where the license plate is given a picture. The second step is to recognize where the individual letters are in the lincense plate and then clean them in order to make the computer easier to detect. The last and the most important step is to train the computer using different networks and then detect the letters using machine learning.
 
 ### &nbsp;&nbsp;&nbsp; Part 1: Extracting License Plate Location from Image
-&nbsp;&nbsp;&nbsp; For this part, a pretrained model using wpod net is used and the following function uses wpod to detect the license plate location with its respective coordinates.
+&nbsp;&nbsp;&nbsp; For this part, a pretrained model using wpod net is used and the following function uses wpod to detect the license plate location with its respective coordinates. [1]
 
 ``` Python
 def get_plate(image_path, Dmax=608, Dmin = 608):
@@ -27,7 +27,7 @@ The result is
 <img src="Images/part1_result (1).jpg">
 
 ### &nbsp;&nbsp;&nbsp; Part 2: Recognizing Letters within the License Plate
-&nbsp;&nbsp;&nbsp; In this part of the project, many steps has to be done. In order to process the images, this function makes sure the pictures are equal sizes
+&nbsp;&nbsp;&nbsp; In this part of the project, many steps has to be done. In order to process the images, this function makes sure the pictures are equal sizes. [2]
 
 ``` Python
 def preprocess_image(image_path,resize=False):
@@ -39,7 +39,7 @@ def preprocess_image(image_path,resize=False):
     return img
 ```
 
-Then other techniques are used to get what we want, such as converting the images to 255 scale, then grayscale, then blurring it and also setting a threshhold value to change it to binary and finally, dilate the image. Which is achieved using the following lines
+Then other techniques are used to get what we want, such as converting the images to 255 scale, then grayscale, then blurring it and also setting a threshhold value to change it to binary and finally, dilate the image. Which is achieved using the following lines. [2]
 
 ``` Python
 if (len(LpImg)): #check if there is at least one license image
@@ -61,7 +61,7 @@ The result looks like this
 
 <img src="/Images/threshding (1).png">
 
-Lastly, in order to detect the individual letters, all of the contours of the image are sorted and according to its width and height, determines where the letters are. The following segment of code achieves this step.
+Lastly, in order to detect the individual letters, all of the contours of the image are sorted and according to its width and height, determines where the letters are. The following segment of code achieves this step. [2]
 
 ``` Python
 for c in sort_contours(cont):
@@ -88,7 +88,7 @@ The result is
 &nbsp;&nbsp;&nbsp; Training the computer takes a long time and memory. First, researched about what types of networks that could be used with the frameword was conducted and MobileNet, ResNet, and Xception were the three models that were compatible. With the training data provided by Nguyen, the program was able to train all of these networks with notable results.
 
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MobileNet:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This is the network that the framework came with. Even though there was a lot of errors and it took me a long time to get it running, it was able to produce some of the results that the original author had. MobileNet uses lightweight deep convolutional neural networks to provide an efficient model for mobile and embedded vision applications. The following function uses the MobileNet structure to start training from the dataset.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This is the network that the framework came with. Even though there was a lot of errors and it took me a long time to get it running, it was able to produce some of the results that the original author had. MobileNet uses lightweight deep convolutional neural networks to provide an efficient model for mobile and embedded vision applications. The following function uses the MobileNet structure to start training from the dataset. [3]
 
 ``` Python
 # Create our model with pre-trained MobileNetV2 architecture from imagenet
